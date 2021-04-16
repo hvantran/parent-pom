@@ -40,6 +40,12 @@
         <docker.image.tag>${project.version}</docker.image.tag>
         <maven.deploy.version>3.0.0-M1</maven.deploy.version>
 
+        <!-- docker images version -->
+        <kibana.version>7.11.1</kibana.version>
+        <elasticsearch.version>7.11.1</elasticsearch.version>
+        <logstash.version>7.11.1</logstash.version>
+        <jenkins.version>lts</jenkins.version>
+
         <!--suppress UnresolvedMavenProperty -->
         <docker.repo>${env.DOCKER_REPO}</docker.repo>
         <!--suppress UnresolvedMavenProperty -->
