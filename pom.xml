@@ -43,15 +43,14 @@
         <maven.deploy.version>3.0.0-M1</maven.deploy.version>
 
         <!-- docker images version -->
-        <kibana.version>7.11.1</kibana.version>
-        <elasticsearch.version>7.11.1</elasticsearch.version>
-        <logstash.version>7.11.1</logstash.version>
-        <jenkins.version>lts</jenkins.version>
+        <elk.version>7.12.1</elk.version>
 
         <!--suppress UnresolvedMavenProperty -->
         <docker.repo>${env.DOCKER_REPO}</docker.repo>
         <docker.image.name>${project.artifactId}</docker.image.name>
         <docker.java.base>${env.JAVA_BASE_IMAGE}</docker.java.base>
+        <!--suppress UnresolvedMavenProperty -->
+        <docker.python.base>${env.PYTHON_BASE_IMAGE}</docker.python.base>
     </properties>
 
     <dependencyManagement>
