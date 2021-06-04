@@ -43,7 +43,7 @@
         <maven.deploy.version>3.0.0-M1</maven.deploy.version>
 
         <!-- docker images version -->
-        <elk.version>7.13.0</elk.version>
+        <elk.version>7.13.1</elk.version>
 
         <!--suppress UnresolvedMavenProperty -->
         <docker.repo>${env.DOCKER_REPO}</docker.repo>
