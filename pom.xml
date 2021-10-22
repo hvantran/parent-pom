@@ -45,6 +45,13 @@
 
         <!-- docker images version -->
         <elk.version>7.14.0</elk.version>
+        <logstash.service.name>logstash</logstash.service.name>
+        <logstash.udp.port>5959</logstash.udp.port>
+        <logstash.tcp.port>5858</logstash.tcp.port>
+        <elasticsearch.service.name>elasticsearch</elasticsearch.service.name>
+        <elasticsearch.port>9200</elasticsearch.port>
+        <kibana.service.name>kibana</kibana.service.name>
+        <kibana.port>5601</kibana.port>
 
         <!--suppress UnresolvedMavenProperty -->
         <docker.repo>tranvanhoa2810</docker.repo>
