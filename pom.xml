@@ -59,6 +59,8 @@
         <docker.java.base>openjdk:11-jre-slim</docker.java.base>
         <!--suppress UnresolvedMavenProperty -->
         <docker.python.base>3.8.10-alpine</docker.python.base>
+        <jaxb-api.version>2.3.1</jaxb-api.version>
+        <json-path.version>2.6.0</json-path.version>
     </properties>
 
     <dependencyManagement>
@@ -116,7 +118,12 @@
             <dependency>
                 <groupId>javax.xml.bind</groupId>
                 <artifactId>jaxb-api</artifactId>
-                <version>2.3.1</version>
+                <version>${jaxb-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jayway.jsonpath</groupId>
+                <artifactId>json-path</artifactId>
+                <version>${json-path.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
