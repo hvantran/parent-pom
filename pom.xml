@@ -61,6 +61,8 @@
         <docker.python.base>3.8.10-alpine</docker.python.base>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <json-path.version>2.6.0</json-path.version>
+        <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
+        <springfox-swagger-ui.version>3.0.0</springfox-swagger-ui.version>
     </properties>
 
     <dependencyManagement>
@@ -109,6 +111,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox-swagger-ui.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.postgresql</groupId>
