@@ -32,7 +32,7 @@
         <log4j.version>2.7</log4j.version>
         <posgresql.version>42.2.24</posgresql.version>
         <commons-collections4.version>4.4</commons-collections4.version>
-        <logback-classic.version>1.2.10</logback-classic.version>
+        <logback-classic.version>1.2.11</logback-classic.version>
         <logstash-logback-encoder.version>7.0.1</logstash-logback-encoder.version>
 
         <!-- maven plugins versions -->
@@ -44,7 +44,7 @@
         <maven.deploy.version>3.0.0-M2</maven.deploy.version>
 
         <!-- docker images version -->
-        <elk.version>7.14.0</elk.version>
+        <elk.version>8.1.0</elk.version>
         <logstash.service.name>logstash</logstash.service.name>
         <logstash.udp.port>5959</logstash.udp.port>
         <logstash.tcp.port>5858</logstash.tcp.port>
@@ -233,11 +233,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
-                <configuration>
-                    <systemPropertyVariables>
-                        <env.properties>${env.properties}</env.properties>
-                    </systemPropertyVariables>
-                </configuration>
             </plugin>
         </plugins>
         <pluginManagement>
