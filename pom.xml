@@ -36,7 +36,7 @@
         <logstash-logback-encoder.version>7.0.1</logstash-logback-encoder.version>
 
         <!-- maven plugins versions -->
-        <springboot.version>2.4.3</springboot.version>
+        <springboot.version>2.6.4</springboot.version>
         <maven.compiler.version>3.8.0</maven.compiler.version>
         <docker.maven.plugin.version>1.2.2</docker.maven.plugin.version>
         <docker.image.name>${project.artifactId}</docker.image.name>
@@ -130,6 +130,11 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
             <dependency>
