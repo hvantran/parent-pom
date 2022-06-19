@@ -34,6 +34,7 @@
         <commons-collections4.version>4.4</commons-collections4.version>
         <logback-classic.version>1.2.11</logback-classic.version>
         <logstash-logback-encoder.version>7.1.1</logstash-logback-encoder.version>
+        <version.keycloak>18.0.0</version.keycloak>
 
         <!-- maven plugins versions -->
         <springboot.version>2.6.4</springboot.version>
@@ -74,7 +75,6 @@
             </activation>
             <properties>
                 <skipDocker>true</skipDocker>
-                <skipTest>true</skipTest>
                 <springdoc.swagger-ui.enabled>true</springdoc.swagger-ui.enabled>
                 <springdoc.api-docs.enabled>true</springdoc.api-docs.enabled>
                 <spring.profiles.active>dev</spring.profiles.active>
@@ -181,6 +181,13 @@
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-ui</artifactId>
                 <version>${springdoc-openapi-ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.keycloak.bom</groupId>
+                <artifactId>keycloak-adapter-bom</artifactId>
+                <version>${version.keycloak}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.postgresql</groupId>
