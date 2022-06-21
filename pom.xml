@@ -66,9 +66,6 @@
         <r2dbc-postgresql.version>0.8.12.RELEASE</r2dbc-postgresql.version>
         <springdoc-openapi-ui.version>1.6.8</springdoc-openapi-ui.version>
         <h2.version>2.1.214</h2.version>
-
-        <sonar.organization>hvantran</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <profiles>
