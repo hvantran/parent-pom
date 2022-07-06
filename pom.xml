@@ -17,6 +17,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <java.compile.version>11</java.compile.version>
         <freemarker.version>2.3.30</freemarker.version>
         <lombok.version>1.18.24</lombok.version>
@@ -33,11 +34,11 @@
         <posgresql.version>42.2.24</posgresql.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <logback-classic.version>1.2.11</logback-classic.version>
-        <logstash-logback-encoder.version>7.1.1</logstash-logback-encoder.version>
+        <logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
         <version.keycloak>18.0.0</version.keycloak>
 
         <!-- maven plugins versions -->
-        <springboot.version>2.6.4</springboot.version>
+        <springboot.version>2.7.1</springboot.version>
         <maven.compiler.version>3.8.0</maven.compiler.version>
         <docker.maven.plugin.version>1.2.2</docker.maven.plugin.version>
         <docker.image.name>${project.artifactId}</docker.image.name>
@@ -66,6 +67,8 @@
         <r2dbc-postgresql.version>0.8.12.RELEASE</r2dbc-postgresql.version>
         <springdoc-openapi-ui.version>1.6.8</springdoc-openapi-ui.version>
         <h2.version>2.1.214</h2.version>
+
+        <!-- Sonar cloud configuration -->
         <sonar.organization>hvantran</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
