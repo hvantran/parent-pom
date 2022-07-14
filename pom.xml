@@ -73,7 +73,6 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
         <micrometer-registry-prometheus.version>1.9.1</micrometer-registry-prometheus.version>
-        <maven-enforcer-plugin.version>3.1.0</maven-enforcer-plugin.version>
     </properties>
 
     <profiles>
@@ -388,28 +387,6 @@
                             </exclude>
                         </excludes>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>${maven-enforcer-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>enforce-property</id>
-                            <goals>
-                                <goal>enforce</goal>
-                            </goals>
-                            <configuration>
-                                <rules>
-                                    <requireProperty>
-                                        <property>spring.profiles.active</property>
-                                        <message>You must set a spring.profiles.active property!</message>
-                                    </requireProperty>
-                                </rules>
-                                <fail>true</fail>
-                            </configuration>
-                        </execution>
-                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
