@@ -56,10 +56,6 @@
         <kibana.port>5601</kibana.port>
 
         <!--suppress UnresolvedMavenProperty -->
-        <docker.repo>tranvanhoa2810</docker.repo>
-        <docker.image.name>${project.artifactId}</docker.image.name>
-        <docker.java.base>openjdk:17-jdk-alpine</docker.java.base>
-        <!--suppress UnresolvedMavenProperty -->
         <docker.python.base>3.8.10-alpine</docker.python.base>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <json-path.version>2.6.0</json-path.version>
@@ -73,6 +69,7 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
         <micrometer-registry-prometheus.version>1.9.1</micrometer-registry-prometheus.version>
+        <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
     </properties>
 
     <profiles>
@@ -82,7 +79,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <skipDocker>true</skipDocker>
+                <dockerfile.skip>false</dockerfile.skip>
                 <springdoc.swagger-ui.enabled>true</springdoc.swagger-ui.enabled>
                 <springdoc.api-docs.enabled>true</springdoc.api-docs.enabled>
                 <spring.profiles.active>dev</spring.profiles.active>
@@ -91,7 +88,7 @@
         <profile>
             <id>test</id>
             <properties>
-                <skipDocker>true</skipDocker>
+                <dockerfile.skip>true</dockerfile.skip>
                 <springdoc.swagger-ui.enabled>true</springdoc.swagger-ui.enabled>
                 <springdoc.api-docs.enabled>true</springdoc.api-docs.enabled>
                 <spring.profiles.active>test</spring.profiles.active>
@@ -100,7 +97,7 @@
         <profile>
             <id>prod</id>
             <properties>
-                <skipDocker>true</skipDocker>
+                <dockerfile.skip>true</dockerfile.skip>
                 <springdoc.swagger-ui.enabled>false</springdoc.swagger-ui.enabled>
                 <springdoc.api-docs.enabled>false</springdoc.api-docs.enabled>
                 <spring.profiles.active>prod</spring.profiles.active>
@@ -323,49 +320,23 @@
             <plugins>
                 <plugin>
                     <groupId>com.spotify</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>${docker.maven.plugin.version}</version>
-                    <configuration>
-                        <imageName>${docker.image.name}</imageName>
-                        <baseImage>${docker.java.base}</baseImage>
-                        <entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
-                        <resources>
-                            <resource>
-                                <directory>${project.build.directory}</directory>
-                                <include>${project.build.finalName}.jar</include>
-                            </resource>
-                        </resources>
-                    </configuration>
+                    <artifactId>dockerfile-maven-plugin</artifactId>
+                    <version>${dockerfile-maven-plugin.version}</version>
                     <executions>
                         <execution>
-                            <id>build-image</id>
-                            <phase>package</phase>
+                            <id>default</id>
                             <goals>
                                 <goal>build</goal>
                             </goals>
                         </execution>
-                        <execution>
-                            <id>tag-image</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>tag</goal>
-                            </goals>
-                            <configuration>
-                                <image>${docker.image.name}</image>
-                                <newName>${docker.repo}/${docker.image.name}:${docker.image.tag}</newName>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>push-image</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>push</goal>
-                            </goals>
-                            <configuration>
-                                <imageName>${docker.repo}/${docker.image.name}:${docker.image.tag}</imageName>
-                            </configuration>
-                        </execution>
                     </executions>
+                    <configuration>
+                        <repository>${docker.image.name}</repository>
+                        <tag>${docker.image.tag}</tag>
+                        <buildArgs>
+                            <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                        </buildArgs>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
