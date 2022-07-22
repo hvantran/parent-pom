@@ -58,7 +58,7 @@
         <!--suppress UnresolvedMavenProperty -->
         <docker.repo>tranvanhoa2810</docker.repo>
         <docker.image.name>${project.artifactId}</docker.image.name>
-        <docker.java.base>openjdk:11-jre-slim</docker.java.base>
+        <docker.java.base>openjdk:17-jdk-alpine</docker.java.base>
         <!--suppress UnresolvedMavenProperty -->
         <docker.python.base>3.8.10-alpine</docker.python.base>
         <jaxb-api.version>2.3.1</jaxb-api.version>
