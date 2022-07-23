@@ -40,9 +40,6 @@
         <!-- maven plugins versions -->
         <springboot.version>2.7.1</springboot.version>
         <maven.compiler.version>3.8.0</maven.compiler.version>
-        <docker.maven.plugin.version>1.2.2</docker.maven.plugin.version>
-        <docker.image.name>${project.artifactId}</docker.image.name>
-        <docker.image.tag>${project.version}</docker.image.tag>
         <maven.deploy.version>3.0.0-M2</maven.deploy.version>
 
         <!-- docker images version -->
@@ -54,6 +51,13 @@
         <elasticsearch.port>9200</elasticsearch.port>
         <kibana.service.name>kibana</kibana.service.name>
         <kibana.port>5601</kibana.port>
+        <ecommerce.stats.service.name>e-commerce-stats</ecommerce.stats.service.name>
+        <ext.endpoint.collector.service.name>ext-endpoint-collector</ext.endpoint.collector.service.name>
+
+        <!--suppress UnresolvedMavenProperty -->
+        <docker.repo>tranvanhoa2810</docker.repo>
+        <docker.image.name>${docker.repo}/${project.artifactId}</docker.image.name>
+        <docker.image.tag>${project.version}</docker.image.tag>
 
         <!--suppress UnresolvedMavenProperty -->
         <docker.python.base>3.8.10-alpine</docker.python.base>
@@ -327,6 +331,7 @@
                             <id>default</id>
                             <goals>
                                 <goal>build</goal>
+                                <goal>push</goal>
                             </goals>
                         </execution>
                     </executions>
