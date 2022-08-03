@@ -43,7 +43,7 @@
         <maven.deploy.version>3.0.0-M2</maven.deploy.version>
 
         <!-- docker images version -->
-        <elk.version>8.1.0</elk.version>
+        <elk.version>8.3.3</elk.version>
         <logstash.service.name>logstash</logstash.service.name>
         <logstash.udp.port>5959</logstash.udp.port>
         <logstash.tcp.port>5858</logstash.tcp.port>
@@ -338,6 +338,8 @@
                     <configuration>
                         <repository>${docker.image.name}</repository>
                         <tag>${docker.image.tag}</tag>
+                        <dockerfile>${project.build.directory}/classes/Dockerfile</dockerfile>
+                        <contextDirectory>${project.build.directory}</contextDirectory>
                         <buildArgs>
                             <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                         </buildArgs>
