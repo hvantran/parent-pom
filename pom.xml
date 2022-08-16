@@ -36,6 +36,8 @@
         <logback-classic.version>1.2.11</logback-classic.version>
         <logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
         <version.keycloak>18.0.0</version.keycloak>
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+        <spring-cloud-sleuth-otel.version>1.1.0-M6</spring-cloud-sleuth-otel.version>
 
         <!-- maven plugins versions -->
         <springboot.version>2.7.1</springboot.version>
@@ -49,6 +51,9 @@
         <logstash.tcp.port>5858</logstash.tcp.port>
         <elasticsearch.service.name>elasticsearch</elasticsearch.service.name>
         <elasticsearch.port>9200</elasticsearch.port>
+        <apm.server.port>8200</apm.server.port>
+        <apm.server.service.name>apmserver</apm.server.service.name>
+        <apm.agent.version>1.33.0</apm.agent.version>
         <kibana.service.name>kibana</kibana.service.name>
         <kibana.port>5601</kibana.port>
         <ecommerce.stats.service.name>e-commerce-stats</ecommerce.stats.service.name>
@@ -74,6 +79,7 @@
         <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
         <micrometer-registry-prometheus.version>1.9.1</micrometer-registry-prometheus.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
+        <opentelemetry-bom.version>1.15.0</opentelemetry-bom.version>
     </properties>
 
     <profiles>
@@ -99,15 +105,47 @@
             </properties>
         </profile>
         <profile>
+            <id>stage</id>
+            <properties>
+                <dockerfile.skip>false</dockerfile.skip>
+                <springdoc.swagger-ui.enabled>true</springdoc.swagger-ui.enabled>
+                <springdoc.api-docs.enabled>true</springdoc.api-docs.enabled>
+                <spring.profiles.active>stage</spring.profiles.active>
+            </properties>
+        </profile>
+        <profile>
             <id>prod</id>
             <properties>
-                <dockerfile.skip>true</dockerfile.skip>
+                <dockerfile.skip>false</dockerfile.skip>
                 <springdoc.swagger-ui.enabled>false</springdoc.swagger-ui.enabled>
                 <springdoc.api-docs.enabled>false</springdoc.api-docs.enabled>
                 <spring.profiles.active>prod</spring.profiles.active>
             </properties>
         </profile>
     </profiles>
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <url>https://repo.spring.io/snapshot</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencyManagement>
         <dependencies>
@@ -253,6 +291,27 @@
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth-otel-dependencies</artifactId>
+                <version>${spring-cloud-sleuth-otel.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-bom</artifactId>
+                <version>${opentelemetry-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
