@@ -58,6 +58,7 @@
         <kibana.port>5601</kibana.port>
         <ecommerce.stats.service.name>e-commerce-stats</ecommerce.stats.service.name>
         <ext.endpoint.collector.service.name>ext-endpoint-collector</ext.endpoint.collector.service.name>
+        <template.management.app.service.name>template-management</template.management.app.service.name>
 
         <!--suppress UnresolvedMavenProperty -->
         <docker.repo>tranvanhoa2810</docker.repo>
