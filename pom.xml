@@ -81,6 +81,7 @@
         <micrometer-registry-prometheus.version>1.9.1</micrometer-registry-prometheus.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
         <opentelemetry-bom.version>1.15.0</opentelemetry-bom.version>
+        <graaljs.version>22.3.0</graaljs.version>
     </properties>
 
     <profiles>
@@ -192,6 +193,11 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
@@ -271,6 +277,18 @@
                 <groupId>com.jayway.jsonpath</groupId>
                 <artifactId>json-path</artifactId>
                 <version>${json-path.version}</version>
+            </dependency>
+
+            <!-- Graal script engine replace Nashorn from Java 15+ -->
+            <dependency>
+                <groupId>org.graalvm.js</groupId>
+                <artifactId>js</artifactId>
+                <version>${graaljs.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.graalvm.js</groupId>
+                <artifactId>js-scriptengine</artifactId>
+                <version>${graaljs.version}</version>
             </dependency>
 
             <!-- Logging with log4j -->
