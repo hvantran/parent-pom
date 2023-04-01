@@ -45,7 +45,7 @@
         <maven.deploy.version>3.0.0-M2</maven.deploy.version>
 
         <!-- docker images version -->
-        <elk.version>8.3.3</elk.version>
+        <elk.version>8.6.2</elk.version>
         <logstash.service.name>logstash</logstash.service.name>
         <logstash.udp.port>5959</logstash.udp.port>
         <logstash.tcp.port>5858</logstash.tcp.port>
@@ -56,6 +56,9 @@
         <apm.agent.version>1.33.0</apm.agent.version>
         <kibana.service.name>kibana</kibana.service.name>
         <kibana.port>5601</kibana.port>
+
+        <!-- Expose services-->
+        <action.manager.service.name>action-manager</action.manager.service.name>
         <ecommerce.stats.service.name>e-commerce-stats</ecommerce.stats.service.name>
         <ext.endpoint.collector.service.name>ext-endpoint-collector</ext.endpoint.collector.service.name>
         <template.management.app.service.name>template-management</template.management.app.service.name>
