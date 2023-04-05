@@ -58,6 +58,7 @@
 
         <!-- Expose services-->
         <action.manager.service.name>action-manager</action.manager.service.name>
+        <action.manager-ui.service.name>action-manager-ui</action.manager-ui.service.name>
         <ecommerce.stats.service.name>e-commerce-stats</ecommerce.stats.service.name>
         <ext.endpoint.collector.service.name>ext-endpoint-collector</ext.endpoint.collector.service.name>
         <template.management.app.service.name>template-management</template.management.app.service.name>
