@@ -32,7 +32,7 @@
         <log4j.version>2.20.0</log4j.version>
         <posgresql.version>42.6.0</posgresql.version>
         <commons-collections4.version>4.4</commons-collections4.version>
-        <logback-classic.version>1.2.11</logback-classic.version>
+        <logback.version>1.4.6</logback.version>
         <logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
         <version.keycloak>18.0.0</version.keycloak>
         <spring-cloud.version>2021.0.3</spring-cloud.version>
@@ -122,8 +122,8 @@
             <id>prod</id>
             <properties>
                 <dockerfile.skip>false</dockerfile.skip>
-                <springdoc.swagger-ui.enabled>false</springdoc.swagger-ui.enabled>
-                <springdoc.api-docs.enabled>false</springdoc.api-docs.enabled>
+                <springdoc.swagger-ui.enabled>true</springdoc.swagger-ui.enabled>
+                <springdoc.api-docs.enabled>true</springdoc.api-docs.enabled>
                 <spring.profiles.active>prod</spring.profiles.active>
             </properties>
         </profile>
@@ -183,6 +183,12 @@
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
                 <version>${jsoup.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -203,6 +209,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${springboot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -366,8 +378,13 @@
         <!-- Logging with logback -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>${logback-classic.version}</version>
+            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>net.logstash.logback</groupId>
