@@ -61,6 +61,7 @@
         <action.manager-ui.service.name>action-manager-ui</action.manager-ui.service.name>
         <ecommerce.stats.service.name>e-commerce-stats</ecommerce.stats.service.name>
         <ext.endpoint.collector.service.name>ext-endpoint-collector</ext.endpoint.collector.service.name>
+        <ext.endpoint.collector-ui.service.name>endpoint-collector-ui</ext.endpoint.collector-ui.service.name>
         <template.management.app.service.name>template-management</template.management.app.service.name>
 
         <!--suppress UnresolvedMavenProperty -->
@@ -85,6 +86,7 @@
         <opentelemetry-bom.version>1.15.0</opentelemetry-bom.version>
         <graaljs.version>22.3.0</graaljs.version>
         <snakeyaml.version>2.0</snakeyaml.version>
+        <exec-maven-plugin.version>3.1.0</exec-maven-plugin.version>
     </properties>
 
     <profiles>
@@ -466,6 +468,60 @@
                             </exclude>
                         </excludes>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>${exec-maven-plugin.version}</version>
+                    <executions>
+                        <!-- Required: The following will ensure `yarn install` is called
+                             before anything else during the 'Default Lifecycle' -->
+                        <execution>
+                            <id>npm install (initialize)</id>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                            <phase>initialize</phase>
+                            <configuration>
+                                <executable>yarn</executable>
+                                <arguments>
+                                    <argument>install</argument>
+                                </arguments>
+                            </configuration>
+                        </execution>
+                        <!-- Required: The following will ensure `yarn install` is called
+                             before anything else during the 'Clean Lifecycle' -->
+                        <execution>
+                            <id>npm install (clean)</id>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                            <phase>pre-clean</phase>
+                            <configuration>
+                                <executable>yarn</executable>
+                                <arguments>
+                                    <argument>install</argument>
+                                </arguments>
+                            </configuration>
+                        </execution>
+                        <!-- Required: This following calls `yarn run build` where 'build' is
+                             the script name I used in my project, change this if yours is
+                                 different -->
+                        <execution>
+                            <id>npm run build (compile)</id>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                            <phase>compile</phase>
+                            <configuration>
+                                <executable>yarn</executable>
+                                <arguments>
+                                    <argument>run</argument>
+                                    <argument>build</argument>
+                                </arguments>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
