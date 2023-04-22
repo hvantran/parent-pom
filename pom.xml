@@ -62,7 +62,8 @@
         <ecommerce.stats.service.name>e-commerce-stats</ecommerce.stats.service.name>
         <ext.endpoint.collector.service.name>ext-endpoint-collector</ext.endpoint.collector.service.name>
         <ext.endpoint.collector-ui.service.name>endpoint-collector-ui</ext.endpoint.collector-ui.service.name>
-        <template.management.app.service.name>template-management</template.management.app.service.name>
+        <template.manager.service.name>template-manager</template.manager.service.name>
+        <template.manager-ui.service.name>template-manager-ui</template.manager-ui.service.name>
 
         <!--suppress UnresolvedMavenProperty -->
         <docker.repo>tranvanhoa2810</docker.repo>
