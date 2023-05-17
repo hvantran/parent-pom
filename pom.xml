@@ -438,10 +438,27 @@
                                 <goal>push</goal>
                             </goals>
                         </execution>
+                        <execution>
+                            <id>tag-latest</id>
+                            <goals>
+                                <goal>tag</goal>
+                            </goals>
+                            <configuration>
+                                <tag>latest</tag>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>tag-version</id>
+                            <goals>
+                                <goal>tag</goal>
+                            </goals>
+                            <configuration>
+                                <tag>${docker.image.tag}</tag>
+                            </configuration>
+                        </execution>
                     </executions>
                     <configuration>
                         <repository>${docker.image.name}</repository>
-                        <tag>${docker.image.tag}</tag>
                         <dockerfile>${project.build.directory}/classes/Dockerfile</dockerfile>
                         <contextDirectory>${project.build.directory}</contextDirectory>
                         <buildArgs>
