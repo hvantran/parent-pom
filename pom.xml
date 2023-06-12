@@ -39,7 +39,7 @@
         <spring-cloud-sleuth-otel.version>1.1.0-M6</spring-cloud-sleuth-otel.version>
 
         <!-- maven plugins versions -->
-        <springboot.version>3.0.5</springboot.version>
+        <springboot.version>3.1.0</springboot.version>
         <maven.compiler.version>3.8.0</maven.compiler.version>
         <maven.deploy.version>3.0.0-M2</maven.deploy.version>
 
@@ -88,6 +88,7 @@
         <graaljs.version>22.3.0</graaljs.version>
         <snakeyaml.version>2.0</snakeyaml.version>
         <exec-maven-plugin.version>3.1.0</exec-maven-plugin.version>
+        <native-maven-plugin.version>0.9.22</native-maven-plugin.version>
     </properties>
 
     <profiles>
@@ -131,29 +132,6 @@
             </properties>
         </profile>
     </profiles>
-    <repositories>
-        <repository>
-            <id>spring-snapshots</id>
-            <url>https://repo.spring.io/snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <url>https://repo.spring.io/milestone</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-snapshots</id>
-            <url>https://repo.spring.io/snapshot</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <url>https://repo.spring.io/milestone</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <dependencyManagement>
         <dependencies>
@@ -339,20 +317,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-sleuth-otel-dependencies</artifactId>
-                <version>${spring-cloud-sleuth-otel.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-            <dependency>
-                <groupId>io.opentelemetry</groupId>
-                <artifactId>opentelemetry-bom</artifactId>
-                <version>${opentelemetry-bom.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -472,6 +436,12 @@
                     <version>${springboot.version}</version>
                     <executions>
                         <execution>
+                            <id>process-aot</id>
+                            <goals>
+                                <goal>process-aot</goal>
+                            </goals>
+                        </execution>
+                        <execution>
                             <id>repackage</id>
                             <goals>
                                 <goal>repackage</goal>
@@ -485,6 +455,12 @@
                                 <artifactId>lombok</artifactId>
                             </exclude>
                         </excludes>
+                        <image>
+                            <builder>paketobuildpacks/builder:tiny</builder>
+                            <env>
+                                <BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
+                            </env>
+                        </image>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -538,6 +514,27 @@
                                     <argument>build</argument>
                                 </arguments>
                             </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.graalvm.buildtools</groupId>
+                    <artifactId>native-maven-plugin</artifactId>
+                    <version>${native-maven-plugin.version}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                        <metadataRepository>
+                            <enabled>true</enabled>
+                        </metadataRepository>
+                        <requiredVersion>22.3</requiredVersion>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>add-reachability-metadata</id>
+                            <goals>
+                                <goal>add-reachability-metadata</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>
