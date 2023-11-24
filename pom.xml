@@ -14,29 +14,30 @@
 
         <java.compile.version>17</java.compile.version>
         <freemarker.version>2.3.30</freemarker.version>
-        <lombok.version>1.18.24</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
         <hamcrest.version>1.3</hamcrest.version>
         <jsoup.version>1.15.4</jsoup.version>
-        <common-io.version>2.11.0</common-io.version>
-        <common-lang3.version>3.12.0</common-lang3.version>
+        <common-io.version>2.15.0</common-io.version>
+        <common-lang3.version>3.14.0</common-lang3.version>
         <reflections.version>0.9.12</reflections.version>
         <commons-pool2.version>2.9.0</commons-pool2.version>
-        <jackson-databind.version>2.14.2</jackson-databind.version>
+        <jackson-databind.version>2.16.0</jackson-databind.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <log4j.version>2.20.0</log4j.version>
         <posgresql.version>42.6.0</posgresql.version>
-        <commons-text.version>1.10.0</commons-text.version>
+        <commons-text.version>1.11.0</commons-text.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <logback.version>1.4.6</logback.version>
-        <logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
+        <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
         <version.keycloak>18.0.0</version.keycloak>
         <spring-cloud.version>2021.0.3</spring-cloud.version>
         <spring-cloud-sleuth-otel.version>1.1.0-M6</spring-cloud-sleuth-otel.version>
 
         <!-- maven plugins versions -->
         <springboot.version>3.1.0</springboot.version>
-        <maven.compiler.version>3.8.0</maven.compiler.version>
-        <maven.deploy.version>3.0.0-M2</maven.deploy.version>
+        <maven.compiler.version>3.11.0</maven.compiler.version>
+        <maven.deploy.version>3.1.1</maven.deploy.version>
+        <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
 
         <!-- docker images version -->
         <elk.version>8.6.2</elk.version>
@@ -68,14 +69,14 @@
         <!--suppress UnresolvedMavenProperty -->
         <docker.python.base>3.8.10-alpine</docker.python.base>
         <json-path.version>2.6.0</json-path.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <r2dbc-postgresql.version>0.8.12.RELEASE</r2dbc-postgresql.version>
         <h2.version>2.1.214</h2.version>
 
         <!-- Sonar cloud configuration -->
         <sonar.organization>hvantran</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
+        <sonar-maven-plugin.version>3.10.0.2594</sonar-maven-plugin.version>
+
         <micrometer-registry-prometheus.version>1.9.1</micrometer-registry-prometheus.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
         <opentelemetry-bom.version>1.15.0</opentelemetry-bom.version>
@@ -84,6 +85,7 @@
         <exec-maven-plugin.version>3.1.0</exec-maven-plugin.version>
         <native-maven-plugin.version>0.9.22</native-maven-plugin.version>
         <springdoc-openapi-starter-webmvc-ui.version>2.2.0</springdoc-openapi-starter-webmvc-ui.version>
+        <mongock-bom.version>4.1.19</mongock-bom.version>
     </properties>
 
     <profiles>
@@ -295,6 +297,15 @@
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-slf4j-impl</artifactId>
                 <version>${log4j.version}</version>
+            </dependency>
+
+            <!--Migration dependencies-->
+            <dependency>
+                <groupId>com.github.cloudyrock.mongock</groupId>
+                <artifactId>mongock-bom</artifactId>
+                <version>${mongock-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <!-- Test dependencies -->
