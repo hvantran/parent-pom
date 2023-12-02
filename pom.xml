@@ -48,7 +48,7 @@
         <elasticsearch.port>9200</elasticsearch.port>
         <apm.server.port>8200</apm.server.port>
         <apm.server.service.name>apmserver</apm.server.service.name>
-        <apm.agent.version>1.33.0</apm.agent.version>
+        <apm.agent.version>1.44.0</apm.agent.version>
         <kibana.service.name>kibana</kibana.service.name>
         <kibana.port>5601</kibana.port>
 
