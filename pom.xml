@@ -40,7 +40,7 @@
         <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
 
         <!-- docker images version -->
-        <elk.version>8.6.2</elk.version>
+        <elk.version>8.12.1</elk.version>
         <logstash.service.name>logstash</logstash.service.name>
         <logstash.udp.port>5959</logstash.udp.port>
         <logstash.tcp.port>5858</logstash.tcp.port>
@@ -127,6 +127,25 @@
                 <springdoc.api-docs.enabled>true</springdoc.api-docs.enabled>
                 <spring.profiles.active>prod</spring.profiles.active>
             </properties>
+        </profile>
+        <profile>
+            <id>native</id>
+            <properties>
+                <dockerfile.skip>true</dockerfile.skip>
+                <springdoc.swagger-ui.enabled>false</springdoc.swagger-ui.enabled>
+                <springdoc.api-docs.enabled>false</springdoc.api-docs.enabled>
+                <spring.profiles.active>prod</spring.profiles.active>
+            </properties>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.graalvm.buildtools</groupId>
+                            <artifactId>native-maven-plugin</artifactId>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
         </profile>
     </profiles>
 
@@ -457,12 +476,12 @@
                                 <goal>process-aot</goal>
                             </goals>
                         </execution>-->
-                        <execution>
+                       <!-- <execution>
                             <id>repackage</id>
                             <goals>
                                 <goal>repackage</goal>
                             </goals>
-                        </execution>
+                        </execution>-->
                     </executions>
                     <configuration>
                         <excludes>
@@ -471,12 +490,12 @@
                                 <artifactId>lombok</artifactId>
                             </exclude>
                         </excludes>
-                        <image>
+                        <!--<image>
                             <builder>paketobuildpacks/builder:tiny</builder>
                             <env>
                                 <BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
                             </env>
-                        </image>
+                        </image>-->
                     </configuration>
                 </plugin>
                 <plugin>
