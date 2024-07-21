@@ -40,7 +40,7 @@
         <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
 
         <!-- docker images version -->
-        <elk.version>8.12.1</elk.version>
+        <elk.version>8.14.3</elk.version>
         <logstash.service.name>logstash</logstash.service.name>
         <logstash.udp.port>5959</logstash.udp.port>
         <logstash.tcp.port>5858</logstash.tcp.port>
