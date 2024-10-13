@@ -53,12 +53,12 @@
         <kibana.port>5601</kibana.port>
 
         <!-- Expose services-->
-        <action.manager.service.name>action-manager</action.manager.service.name>
+        <action.manager.service.name>action-manager-backend</action.manager.service.name>
         <action.manager-ui.service.name>action-manager-ui</action.manager-ui.service.name>
         <ecommerce.stats.service.name>e-commerce-stats</ecommerce.stats.service.name>
-        <ext.endpoint.collector.service.name>ext-endpoint-collector</ext.endpoint.collector.service.name>
+        <ext.endpoint.collector.service.name>endpoint-collector-backend</ext.endpoint.collector.service.name>
         <ext.endpoint.collector-ui.service.name>endpoint-collector-ui</ext.endpoint.collector-ui.service.name>
-        <template.manager.service.name>template-manager</template.manager.service.name>
+        <template.manager.service.name>template-manager-backend</template.manager.service.name>
         <template.manager-ui.service.name>template-manager-ui</template.manager-ui.service.name>
 
         <!--suppress UnresolvedMavenProperty -->
