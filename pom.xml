@@ -139,8 +139,8 @@
             <id>native</id>
             <properties>
                 <dockerfile.skip>true</dockerfile.skip>
-                <springdoc.swagger-ui.enabled>false</springdoc.swagger-ui.enabled>
-                <springdoc.api-docs.enabled>false</springdoc.api-docs.enabled>
+                <springdoc.swagger-ui.enabled>true</springdoc.swagger-ui.enabled>
+                <springdoc.api-docs.enabled>true</springdoc.api-docs.enabled>
                 <spring.profiles.active>prod</spring.profiles.active>
             </properties>
             <build>
