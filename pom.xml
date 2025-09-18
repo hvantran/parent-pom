@@ -27,7 +27,7 @@
         <posgresql.version>42.6.0</posgresql.version>
         <commons-text.version>1.11.0</commons-text.version>
         <commons-collections4.version>4.4</commons-collections4.version>
-        <logback.version>1.4.6</logback.version>
+        <logback.version>1.4.12</logback.version>
         <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
         <version.keycloak>18.0.0</version.keycloak>
         <spring-cloud.version>2021.0.3</spring-cloud.version>
