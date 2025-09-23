@@ -71,7 +71,7 @@
         <docker.python.base>3.8.10-alpine</docker.python.base>
         <json-path.version>2.6.0</json-path.version>
         <r2dbc-postgresql.version>0.8.12.RELEASE</r2dbc-postgresql.version>
-        <h2.version>2.1.214</h2.version>
+        <h2.version>2.2.220</h2.version>
         <resilience4j.version>2.2.0</resilience4j.version>
 
         <!-- Sonar cloud configuration -->
