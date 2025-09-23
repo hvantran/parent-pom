@@ -24,7 +24,7 @@
         <jackson-databind.version>2.16.0</jackson-databind.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <log4j.version>2.20.0</log4j.version>
-        <posgresql.version>42.6.0</posgresql.version>
+        <posgresql.version>42.6.1</posgresql.version>
         <commons-text.version>1.11.0</commons-text.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <logback.version>1.4.6</logback.version>
