@@ -69,6 +69,7 @@
 
         <!--suppress UnresolvedMavenProperty -->
         <docker.python.base>3.8.10-alpine</docker.python.base>
+        <docker.java.base>eclipse-temurin:21-jdk-alpine</docker.java.base>
         <json-path.version>2.9.0</json-path.version>
         <r2dbc-postgresql.version>0.8.12.RELEASE</r2dbc-postgresql.version>
         <h2.version>2.2.220</h2.version>
