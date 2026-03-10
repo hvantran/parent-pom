@@ -23,11 +23,11 @@
         <commons-pool2.version>2.9.0</commons-pool2.version>
         <jackson-databind.version>2.16.0</jackson-databind.version>
         <commons-collections4.version>4.4</commons-collections4.version>
-        <log4j.version>2.20.0</log4j.version>
+        <log4j.version>2.25.3</log4j.version>
         <posgresql.version>42.6.1</posgresql.version>
         <commons-text.version>1.11.0</commons-text.version>
         <commons-collections4.version>4.4</commons-collections4.version>
-        <logback.version>1.5.19</logback.version>
+        <logback.version>1.5.25</logback.version>
         <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
         <version.keycloak>18.0.0</version.keycloak>
         <spring-cloud.version>2023.0.0</spring-cloud.version>
