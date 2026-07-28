@@ -20,7 +20,7 @@
         <common-io.version>2.15.0</common-io.version>
         <common-lang3.version>3.18.0</common-lang3.version>
         <reflections.version>0.9.12</reflections.version>
-        <commons-pool2.version>2.9.0</commons-pool2.version>
+        <commons-pool2.version>2.12.0</commons-pool2.version>
         <jackson-databind.version>2.16.0</jackson-databind.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <log4j.version>2.20.0</log4j.version>
