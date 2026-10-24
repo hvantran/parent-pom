@@ -30,11 +30,11 @@
         <logback.version>1.5.19</logback.version>
         <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
         <version.keycloak>18.0.0</version.keycloak>
-        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <spring-cloud.version>2024.0.0</spring-cloud.version>
         <spring-cloud-sleuth-otel.version>1.1.0-M6</spring-cloud-sleuth-otel.version>
 
         <!-- maven plugins versions -->
-        <springboot.version>3.2.0</springboot.version>
+        <springboot.version>3.4.4</springboot.version>
         <maven.compiler.version>3.11.0</maven.compiler.version>
         <maven.deploy.version>3.1.1</maven.deploy.version>
         <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
@@ -209,20 +209,8 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-framework-bom</artifactId>
-                <version>6.1.7</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
-                <version>${springboot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.kafka</groupId>
-                <artifactId>spring-kafka</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
             <dependency>
@@ -465,14 +453,6 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <!-- Kafka Test Dependencies -->
-            <dependency>
-                <groupId>org.springframework.kafka</groupId>
-                <artifactId>spring-kafka-test</artifactId>
-                <version>${spring-kafka-test.version}</version>
-                <scope>test</scope>
             </dependency>
 
             <!-- Embedded MongoDB -->
